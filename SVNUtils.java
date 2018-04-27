@@ -32,6 +32,10 @@ import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+/**
+*20180426
+*/
+
 public class SVNUtils {
 	
 	private static final ILog log = Activator.getDefault().getLog();
