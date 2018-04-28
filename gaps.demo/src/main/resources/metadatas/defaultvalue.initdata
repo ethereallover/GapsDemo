@@ -1,0 +1,80 @@
+<init-datas id="70a5d653e77b49fb9d20c30ef8794fac">
+  <init-data id="fccab4d7f89b4fe58271c2ba5924230e" table-id="563c46b837de46fbb725d44c050ab56d">
+    <records>
+      <record>
+        <value-pairs>
+          <value-pair table-field-id="id_num" value="1121312312"/>
+          <value-pair table-field-id="acc_open_date" value="20180901"/>
+          <value-pair table-field-id="due_date" value="20180210"/>
+          <value-pair table-field-id="grander"/>
+          <value-pair table-field-id="host_recv_num" value="0"/>
+          <value-pair table-field-id="bill_delivery_way" value=""/>
+        </value-pairs>
+      </record>
+    </records>
+  </init-data>
+  <init-data id="f77f8e4de6474108bf63a932e44146fe" table-id="30d727da5d434905af12b4146f037e46">
+    <records>
+      <record>
+        <value-pairs>
+          <value-pair table-field-id="business_date" value="20180324"/>
+          <value-pair table-field-id="serial" value="111"/>
+          <value-pair table-field-id="channel" value=""/>
+          <value-pair table-field-id="area"/>
+          <value-pair table-field-id="branch"/>
+          <value-pair table-field-id="teller"/>
+          <value-pair table-field-id="terminal_code"/>
+          <value-pair table-field-id="query_order"/>
+          <value-pair table-field-id="pay_opbankno"/>
+          <value-pair table-field-id="addword"/>
+        </value-pairs>
+      </record>
+    </records>
+  </init-data>
+  <init-data id="968dae33cf70476ebec8c962530461a0" table-id="5156b99d51234f1b8dfec3009a68e4da">
+    <records>
+      <record>
+        <value-pairs>
+          <value-pair table-field-id="business_date" value="20180320"/>
+          <value-pair table-field-id="serial" value="1212002"/>
+          <value-pair table-field-id="order_info"/>
+          <value-pair table-field-id="detail_num"/>
+          <value-pair table-field-id="bill_name"/>
+          <value-pair table-field-id="plt_trans_amt"/>
+        </value-pairs>
+      </record>
+    </records>
+  </init-data>
+  <init-data id="5d9b2e0624a24948b8a6fc6e67784831" table-id="235edc33ae58475fac71ad771058e569">
+    <records>
+      <record>
+        <value-pairs>
+          <value-pair table-field-id="code" value="100002"/>
+          <value-pair table-field-id="company_name"/>
+          <value-pair table-field-id="treasury_name"/>
+          <value-pair table-field-id="unit_contact_phone" value="13390020002"/>
+          <value-pair table-field-id="unit_contact_name"/>
+          <value-pair table-field-id="remarks"/>
+        </value-pairs>
+      </record>
+    </records>
+  </init-data>
+  <init-data id="26da86688d144507b015ba56af3d008f" table-id="05ddefafa22c48ec88c4ef2301b4c1bc">
+    <records>
+      <record>
+        <value-pairs>
+          <value-pair table-field-id="check_sign"/>
+          <value-pair table-field-id="deal_host_date" value="20180320"/>
+          <value-pair table-field-id="deal_host_serial"/>
+          <value-pair table-field-id="out_accno"/>
+          <value-pair table-field-id="plt_trans_amt"/>
+          <value-pair table-field-id="host_date"/>
+          <value-pair table-field-id="plt_serial"/>
+          <value-pair table-field-id="channel"/>
+          <value-pair table-field-id="branch"/>
+          <value-pair table-field-id="reverse_trans_sign"/>
+        </value-pairs>
+      </record>
+    </records>
+  </init-data>
+</init-datas>

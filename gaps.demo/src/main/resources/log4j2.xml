@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status=debug 可以查看log4j的装配过程 -->
+<Configuration status="off" monitorInterval="1800"
+	packages="com.hundsun.gaps.flowexecutor.log">
+
+	<properties>
+		<!-- 日志存放目录 -->
+		<property name="LOG_HOME">logs</property>
+		<!-- 日志名称 -->
+		<property name="FILE_NAME">app</property>
+		<!-- 日志名称 -->
+		<property name="GAPS_NAME">gaps</property>
+	</properties>
+
+	<!-- AsyncGaps:Gaps日志,额外记录交易Id和功能Id(异步) -->
+	<!-- AsyncAll:记录文件日志同时在控制台显示(异步) -->
+	<Loggers>
+		<!-- gaps包报DEBUG以上日志 -->
+		<gapsLogger name="com.hundsun.gaps.flowexecutor.proxys"
+			level="INFO" additivity="false">
+			<AppenderRef ref="AsyncGaps" />
+			<ContextNode />
+			<!-- <Property name="UID">zhqzlsh</Property> -->
+		</gapsLogger>
+
+		<!-- 全局日志级别 -->
+		<Logger name="com.hundsun" level="INFO" additivity="false">
+			<AppenderRef ref="Async" />
+		</Logger>
+
+		<!-- 全局日志级别 -->
+		<Root level="WARN" additivity="false">
+			<AppenderRef ref="Async" />
+		</Root>
+	</Loggers>
+
+	<Appenders>
+
+		<Console name="GapsFlow" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS}[%-5level][%c{1}:%line]- %msg%n%ex" />
+		</Console>
+		<RollingRandomAccessFile name="GapsFile"
+			fileName="${LOG_HOME}/${GAPS_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS}[%-5level][%c{1}:%line]- %msg%n%ex" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingRandomAccessFile>
+		<Async name="AsyncGaps" bufferSize="100" includeLocation="true">
+			<AppenderRef ref="GapsFlow" />
+			<AppenderRef ref="GapsFile" />
+		</Async>
+
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS}[%-5level][%c{1}:%line]- %msg%n%ex" />
+		</Console>
+		<RollingRandomAccessFile name="FILE"
+			fileName="${LOG_HOME}/${FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout
+				pattern="%date{yyyy-MM-dd HH:mm:ss.SSS}[%-5level][%thread][%c] - %msg%n%ex" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingRandomAccessFile>
+		<Async name="Async" bufferSize="100" includeLocation="true">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="Console" />
+		</Async>
+	</Appenders>
+</Configuration>

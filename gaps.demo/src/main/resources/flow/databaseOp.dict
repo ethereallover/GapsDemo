@@ -1,0 +1,23 @@
+<Category id="d8c50863ebbe43d1847c9799a5c68f74" name="root">
+  <Category id="538fadfd15ee4bbe821eecdcc6bbcc56" name="ddd">
+    <dict id="8aaf99d80bd84275a0e5ed434b3b6754" name="数据库操作" title="字典一">
+      <description></description>
+      <dict-item>
+        <text>增加</text>
+        <value>add</value>
+      </dict-item>
+      <dict-item>
+        <text>删除</text>
+        <value>delete</value>
+      </dict-item>
+      <dict-item>
+        <text>修改</text>
+        <value>update</value>
+      </dict-item>
+      <dict-item>
+        <text>查询</text>
+        <value>select</value>
+      </dict-item>
+    </dict>
+  </Category>
+</Category>

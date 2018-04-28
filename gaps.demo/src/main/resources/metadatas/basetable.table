@@ -1,0 +1,55 @@
+<tables>
+  <table id="30d727da5d434905af12b4146f037e46" name="tips_bankdeclare" title="银行申报查询表" schema="" group="未分组">
+    <description></description>
+    <table-field standard-field-id="2ba74feb825d4dd9ba94bd9f3b852ae6" primary="true" unique="true" not-null="true" id="business_date" auto-increase="false"/>
+    <table-field standard-field-id="5db393d04f164f278441208ee16aa930" primary="false" unique="true" not-null="true" id="serial" auto-increase="false"/>
+    <table-field standard-field-id="9c4fb13071034617825558db90378e4a" primary="false" unique="false" not-null="false" id="channel" auto-increase="false"/>
+    <table-field standard-field-id="ea0fce1c030b4388abfed9a0e2b2bea4" primary="false" unique="false" not-null="false" id="area" auto-increase="false"/>
+    <table-field standard-field-id="5665c0723bb54c9c9812e990f95d0ae1" primary="false" unique="false" not-null="false" id="branch" auto-increase="false"/>
+    <table-field standard-field-id="94defbc6a6a64f528b652b70818d2a52" primary="false" unique="false" not-null="false" id="teller" auto-increase="false"/>
+    <table-field standard-field-id="ff890f73279840d19667f7579d050c82" primary="false" unique="false" not-null="false" id="terminal_code" auto-increase="false"/>
+    <table-field standard-field-id="86a60c5a78d8406d9092103c55ca25fe" primary="false" unique="false" not-null="false" id="query_order" auto-increase="false"/>
+    <table-field standard-field-id="3570f9e2aa4d48648cc15a0afa0dafcf" primary="false" unique="false" not-null="false" id="pay_opbankno" auto-increase="false"/>
+    <table-field standard-field-id="b4fa64065a58485fb89ac09db5903b30" primary="false" unique="false" not-null="false" id="addword" auto-increase="false"/>
+  </table>
+  <table id="235edc33ae58475fac71ad771058e569" name="tips_contacts" title="联系人登记表" schema="" group="未分组">
+    <description></description>
+    <table-field standard-field-id="7e63eb87c3e747efae6acad171124a1d" primary="true" unique="true" not-null="true" id="code" auto-increase="false"/>
+    <table-field standard-field-id="3284a7ab6ffc4f0f9286e96589e580c1" primary="false" unique="false" not-null="false" id="company_name" auto-increase="false"/>
+    <table-field standard-field-id="f8d3a3f3dbb1499397de9ed4d8b3629a" primary="false" unique="false" not-null="false" id="treasury_name" auto-increase="false"/>
+    <table-field standard-field-id="871fcf95a043467998f74a317218aaa1" primary="false" unique="false" not-null="true" id="unit_contact_phone" auto-increase="false"/>
+    <table-field standard-field-id="b57fbfe655ac4f84b8bcc594eeba9c4a" primary="false" unique="false" not-null="false" id="unit_contact_name" auto-increase="false"/>
+    <table-field standard-field-id="38ec8dddca7f41a5a46771fa3bc529e8" primary="false" unique="false" not-null="false" id="remarks" auto-increase="false"/>
+  </table>
+  <table id="05ddefafa22c48ec88c4ef2301b4c1bc" name="tips_reconciliation" title="核心对账表" schema="" group="未分组">
+    <description></description>
+    <table-field standard-field-id="965aca987990474babe88530324e04cd" primary="false" unique="false" not-null="false" id="check_sign" auto-increase="false"/>
+    <table-field standard-field-id="5f92e8381b1f44e58642ad561db4f647" primary="true" unique="true" not-null="true" id="deal_host_date" auto-increase="false"/>
+    <table-field standard-field-id="a8aafedf4ce340368e902a55e289c3e0" primary="false" unique="false" not-null="false" id="deal_host_serial" auto-increase="false"/>
+    <table-field standard-field-id="c446a38db63a460cb5bde9c63196f383" primary="false" unique="false" not-null="false" id="out_accno" auto-increase="false"/>
+    <table-field standard-field-id="e55a2a64eb0f45bcb6a3dc723b2d6e9d" primary="false" unique="false" not-null="false" id="plt_trans_amt" auto-increase="false"/>
+    <table-field standard-field-id="f498c8e8a2724ea3b28e11075e62bd76" primary="false" unique="false" not-null="false" id="host_date" auto-increase="false"/>
+    <table-field standard-field-id="35dca0af094a4fa5bbe8d5388da3e03d" primary="false" unique="false" not-null="false" id="plt_serial" auto-increase="false"/>
+    <table-field standard-field-id="9c4fb13071034617825558db90378e4a" primary="false" unique="false" not-null="false" id="channel" auto-increase="false"/>
+    <table-field standard-field-id="5665c0723bb54c9c9812e990f95d0ae1" primary="false" unique="false" not-null="false" id="branch" auto-increase="false"/>
+    <table-field standard-field-id="491b51ff8e10499296585db0d8a8cbea" primary="false" unique="false" not-null="false" id="reverse_trans_sign" auto-increase="false"/>
+  </table>
+  <table id="5156b99d51234f1b8dfec3009a68e4da" name="tips_taxtypedetail" title="税种明细" schema="" group="未分组">
+    <description></description>
+    <table-field standard-field-id="2ba74feb825d4dd9ba94bd9f3b852ae6" primary="true" unique="true" not-null="true" id="business_date" auto-increase="false"/>
+    <table-field standard-field-id="5db393d04f164f278441208ee16aa930" primary="false" unique="false" not-null="true" id="serial" auto-increase="false"/>
+    <table-field standard-field-id="f72f4aec18fb4751aeaf9a01b8447d90" primary="false" unique="false" not-null="false" id="order_info" auto-increase="false"/>
+    <table-field standard-field-id="3c4ed722a6174967a2761bceef0dc938" primary="false" unique="false" not-null="false" id="detail_num" auto-increase="false"/>
+    <table-field standard-field-id="09007d74168f42c9813d53d7327bc166" primary="false" unique="false" not-null="false" id="bill_name" auto-increase="false"/>
+    <table-field standard-field-id="e55a2a64eb0f45bcb6a3dc723b2d6e9d" primary="false" unique="false" not-null="false" id="plt_trans_amt" auto-increase="false"/>
+  </table>
+  <table id="563c46b837de46fbb725d44c050ab56d" name="tips_trans" title="交易人员登记表" schema="" table-space="" group="未分组">
+    <description></description>
+    <table-field standard-field-id="08ba732a39c94a9fbca4eb0ff112f082" primary="true" unique="true" not-null="true" id="id_num" auto-increase="true"/>
+    <table-field standard-field-id="dadbf8683be6411bb8af13c930af2f57" primary="false" unique="false" not-null="false" id="acc_open_date" auto-increase="false"/>
+    <table-field standard-field-id="36885a7c01b149baba71e1cb4c91b8d1" primary="false" unique="false" not-null="false" id="due_date" auto-increase="false"/>
+    <table-field standard-field-id="bd5bfa3c406b4b47a36ff4a5d935d03d" primary="false" unique="false" not-null="false" id="grander" auto-increase="false"/>
+    <table-field standard-field-id="106b6f286ea644149e5523d6b4192fda" primary="false" unique="false" not-null="false" id="host_recv_num" auto-increase="false"/>
+    <table-field standard-field-id="79400a4dace64e8fa139106f81044eba" primary="false" unique="false" not-null="false" id="bill_delivery_way" auto-increase="false"/>
+  </table>
+</tables>

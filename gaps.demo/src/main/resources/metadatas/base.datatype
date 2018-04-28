@@ -1,0 +1,138 @@
+<standard-types>
+  <standard-type id="60c8bde28e874c4aa9fb971f6170d3a4" name="account_no" title="ACCOUNT_NO" data-type="4">
+    <description>账户编号</description>
+    <placeholder-list/>
+    <dialect-type-list>
+      <dialect-type language="mysql" base-type="INT"/>
+      <dialect-type language="oracle" base-type="INTEGER"/>
+      <dialect-type language="java" base-type="Integer"/>
+      <dialect-type language="db2" base-type="int"/>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="04c057db26a04f56b3029c684d2b1de0" name="std_accountname" title="账户名称" data-type="12">
+    <description></description>
+    <placeholder-list>
+      <placeholder name="length" title="长度"/>
+    </placeholder-list>
+    <dialect-type-list>
+      <dialect-type language="mysql" base-type="VARCHAR" ext-type="(${length})"/>
+      <dialect-type language="oracle" base-type="VARCHAR2" ext-type="(${length})"/>
+      <dialect-type language="java" base-type="String"/>
+      <dialect-type language="db2" base-type="varchar" ext-type="(${length})"/>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="524a9ec6ec2f4c7aa08787ca95a71412" name="std_datetime" title="日期时间类型" data-type="91">
+    <description>存储内容：年、月、日、时、分、秒</description>
+    <placeholder-list/>
+    <dialect-type-list>
+      <dialect-type language="java" base-type="Date"/>
+      <dialect-type language="oracle" base-type="DATE"/>
+      <dialect-type language="db2" base-type="timestamp"/>
+      <dialect-type language="mysql" base-type="DATETIME"/>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="00b07a065a7d46068adfb3572d7d4ac6" name="std_decimal" title="金额类型" data-type="3">
+    <description></description>
+    <placeholder-list/>
+    <dialect-type-list>
+      <dialect-type language="mysql" base-type="DECIMAL" ext-type=""/>
+      <dialect-type language="oracle" base-type="DECIMAL" ext-type=""/>
+      <dialect-type language="java" base-type="BigDecimal"/>
+      <dialect-type language="db2" base-type="decimal" ext-type=""/>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="124b9783f94441289419f89a2c9ce168" name="std_double" title="双精度浮点类型" data-type="8">
+    <description></description>
+    <placeholder-list>
+      <placeholder name="length" title="长度"/>
+      <placeholder name="precision" title="精度"/>
+    </placeholder-list>
+    <dialect-type-list>
+      <dialect-type language="java" base-type="Double"/>
+      <dialect-type language="oracle" base-type="NUMBER" ext-type="${length},${precision}">
+        <placeholder-value name="length"/>
+        <placeholder-value name="precision"/>
+      </dialect-type>
+      <dialect-type language="db2" base-type="double" ext-type="${length},${precision}">
+        <placeholder-value name="length"/>
+        <placeholder-value name="precision"/>
+      </dialect-type>
+      <dialect-type language="mysql" base-type="DOUBLE" ext-type="${length},${precision}">
+        <placeholder-value name="length"/>
+        <placeholder-value name="precision"/>
+      </dialect-type>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="c7e743f44ecc4911ab4cb55b2a4a3686" name="std_float" title="浮点类型" data-type="6">
+    <description></description>
+    <placeholder-list>
+      <placeholder name="length" title="长度"/>
+      <placeholder name="precision" title="精度"/>
+    </placeholder-list>
+    <dialect-type-list>
+      <dialect-type language="java" base-type="Double"/>
+      <dialect-type language="oracle" base-type="FLOAT" ext-type="${length},${precision}">
+        <placeholder-value name="length"/>
+        <placeholder-value name="precision"/>
+      </dialect-type>
+      <dialect-type language="db2" base-type="float" ext-type="${length},${precision}">
+        <placeholder-value name="length"/>
+        <placeholder-value name="precision"/>
+      </dialect-type>
+      <dialect-type language="mysql" base-type="FLOAT" ext-type="${length},${precision}">
+        <placeholder-value name="length"/>
+        <placeholder-value name="precision"/>
+      </dialect-type>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="8593c5dcbe5b441bbf39dbaaa53de55f" name="std_int" title="整型" data-type="4">
+    <description></description>
+    <placeholder-list/>
+    <dialect-type-list>
+      <dialect-type language="java" base-type="Integer"/>
+      <dialect-type language="oracle" base-type="INTEGER" ext-type=""/>
+      <dialect-type language="db2" base-type="int" ext-type=""/>
+      <dialect-type language="mysql" base-type="INT"/>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="99909974d58a4645a542dd4288a9429b" name="std_long" title="长整型" data-type="-5">
+    <description></description>
+    <placeholder-list/>
+    <dialect-type-list>
+      <dialect-type language="mysql" base-type="BIGINT"/>
+      <dialect-type language="oracle" base-type="NUMBER"/>
+      <dialect-type language="java" base-type="Long"/>
+      <dialect-type language="db2" base-type="bigint"/>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="62acf003fbd1457f9a25d16e58286401" name="std_string" title="字符型" data-type="12">
+    <description></description>
+    <placeholder-list>
+      <placeholder name="length" title="长度">
+        <description></description>
+      </placeholder>
+    </placeholder-list>
+    <dialect-type-list>
+      <dialect-type language="java" base-type="String"/>
+      <dialect-type language="oracle" base-type="VARCHAR2" ext-type="${length}">
+        <placeholder-value name="length"/>
+      </dialect-type>
+      <dialect-type language="db2" base-type="varchar" ext-type="${length}">
+        <placeholder-value name="length"/>
+      </dialect-type>
+      <dialect-type language="mysql" base-type="VARCHAR" ext-type="${length}">
+        <placeholder-value name="length"/>
+      </dialect-type>
+    </dialect-type-list>
+  </standard-type>
+  <standard-type id="d11d90f40aae43e68b75f99eb5ec3709" name="std_timestamp" title="时间戳" data-type="93">
+    <description></description>
+    <placeholder-list/>
+    <dialect-type-list>
+      <dialect-type language="mysql" base-type="TIMESTAMP" ext-type=""/>
+      <dialect-type language="oracle" base-type="DATE" ext-type=""/>
+      <dialect-type language="java" base-type="Timestamp"/>
+      <dialect-type language="db2" base-type="timestamp" ext-type=""/>
+    </dialect-type-list>
+  </standard-type>
+</standard-types>

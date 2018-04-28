@@ -1,0 +1,478 @@
+<definitions>
+  <process id="e91bce8e4db24e11b724d30008e40218" name="申报查询">
+    <startEvent id="223e7915506246b481b5af1bed04bf9c" name="开始" insular="false" componentId="START" nodeDescribe="asdasd">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="bce92d7fa4ac47948150dda0a8561f50" flag="default"/>
+        </details>
+      </guides>
+    </startEvent>
+    <endEvent id="endEvent" name="结束" insular="false"/>
+    <ioSpace>
+      <input name="clerkId" request="false"/>
+      <input name="payBkCode" request="false"/>
+      <input name="terminalCode" request="false"/>
+      <output name="serialId" request="false"/>
+    </ioSpace>
+    <serviceTask id="e789426869f94e96a838c4577bff64ab" name="获取流水号" insular="false" componentId="2a67fcc4c927405a899cff216ad8e0cd">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="cac5cfab414b46618f4a7e3e9d0b760e" flag="default"/>
+        </details>
+      </guides>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">serialId</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="5a3361190cac46e1867b49b2887bdd79" name="解析返回报文" insular="false" componentId="80adecfb9e4a4b2f893edb437aa23e90">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="30f5e75776304cd2ab9732b8d2b16621" flag="default"/>
+        </details>
+      </guides>
+      <input name="xmlString" title="" describe="" request="false" className="java.lang.String">
+        <value type="EL">tipResult</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">selectResult</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="bce92d7fa4ac47948150dda0a8561f50" name="时间戳生成" insular="false" componentId="c1ed3b366df1484abb14a706d10be51a">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="e743f6bfa9394a77bf5bc95c740d22ef" flag="default"/>
+        </details>
+      </guides>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">time</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="6e70bb82039843f796c3f74728f9c6f2" name="回执报文落地" insular="false" componentId="saveString">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="endEvent" flag="default"/>
+        </details>
+      </guides>
+      <input name="string" title="" describe="" request="false" className="java.lang.String">
+        <value type="NODE">tipResult</value>
+      </input>
+      <input name="filePath" title="" describe="" request="false" className="java.lang.String">
+        <value type="EL">temp/${serialId}.txt</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">path</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="e743f6bfa9394a77bf5bc95c740d22ef" name="获取8位时间" insular="false" componentId="c645f146303f431a8eb4bb4ff3115453">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="bf39e18b8c5f44449e0e4fb33f47ad0c" flag="default"/>
+        </details>
+      </guides>
+      <input name="timestamp" title="需要格式化的时间戳" describe="需要格式化的时间戳" request="false" className="java.lang.Long">
+        <value type="NODE">time</value>
+      </input>
+      <input name="pattern" title="格式化模板" describe="格式化模板" request="false" className="java.lang.String">
+        <value type="STATIC">yyyyMMdd</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">workDate</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="bf39e18b8c5f44449e0e4fb33f47ad0c" name="查询付款银行" insular="false" componentId="6ea04ed4849348fa99ccd62e492d6f4c">
+      <guides value="this.size()&gt;0" type="flag">
+        <details>
+          <guide nextNode="e789426869f94e96a838c4577bff64ab" flag="true"/>
+          <guide nextNode="ec36a31ce2ab4cd19ff757da715af9e6" flag="default"/>
+        </details>
+      </guides>
+      <exceptionEvent id="0c5f9763360e4f26be5c401e906ece5f" name="异常节点" insular="false">
+        <guides value="" type="default">
+          <details>
+            <guide nextNode="a28e66d582954126bfe302ca3431d7e2" flag="default"/>
+          </details>
+        </guides>
+      </exceptionEvent>
+      <input name="sql" title="SQL语句" describe="" request="true" className="java.lang.String">
+        <value type="STATIC">select * from tips_bank where bank_acct = ?</value>
+      </input>
+      <input name="parameter" title="参数" describe="" request="false" className="java.lang.String[]">
+        <value type="EL">payBkCode</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">bank</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="f4d1ba11c9d44c618ca1127e94820f40" name="tips请求" insular="false" componentId="3223e2076b694afc8a1d95843d3fa72b">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="5a3361190cac46e1867b49b2887bdd79" flag="default"/>
+        </details>
+      </guides>
+      <exceptionEvent id="b20d9e943cc94774968a21d48edd55cb" name="异常节点" insular="false">
+        <guides value="" type="default">
+          <details>
+            <guide nextNode="e21ca39f3ba84cb4a4f2eaef0a637c93" flag="default"/>
+          </details>
+        </guides>
+      </exceptionEvent>
+      <input name="host" title="地址" describe="" request="true" className="java.lang.String">
+        <value type="STATIC">aaa</value>
+      </input>
+      <input name="port" title="端口号" describe="" request="true" className="int">
+        <value type="STATIC">111</value>
+      </input>
+      <input name="message" title="信息" describe="" request="true" className="java.lang.String">
+        <value type="STATIC">aaa</value>
+      </input>
+      <result name="${this}" describe="返回信息" request="true">
+        <value type="EL">tipResult</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="d078042506454221bd5abe1246e65b63" name="初始化数据库流水" insular="false" componentId="665acdab6ec74993994ac1d317a98996">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="6e70bb82039843f796c3f74728f9c6f2" flag="default"/>
+        </details>
+      </guides>
+      <exceptionEvent id="0c5f9763360e4f26be5c401e906ece5f" name="异常节点" insular="false">
+        <guides value="" type="default">
+          <details>
+            <guide nextNode="a28e66d582954126bfe302ca3431d7e2" flag="default"/>
+          </details>
+        </guides>
+      </exceptionEvent>
+      <input name="sql" title="" describe="" request="true" className="java.lang.String">
+        <value type="STATIC">insert tips_yhsbcx values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</value>
+      </input>
+      <input name="parameter" title="" describe="" request="false" className="java.lang.String[]">
+        <value type="NODE">param</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">insertResult</value>
+      </result>
+    </serviceTask>
+    <dataTask id="ec36a31ce2ab4cd19ff757da715af9e6" name="组装异常报文" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="endEvent" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="respMsg" value="未找到付款行信息" operation="INSERT"/>
+    </dataTask>
+    <dataTask id="30f5e75776304cd2ab9732b8d2b16621" name="数据库参数组装" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="d078042506454221bd5abe1246e65b63" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="param[0]" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="param[1]" value="serialId" operation="COPY"/>
+      <operationEntry operationNode="param[2]" value="100001" operation="INSERT"/>
+      <operationEntry operationNode="param[3]" value="330000" operation="INSERT"/>
+      <operationEntry operationNode="param[4]" value="selectResult.CFX.MSG.Payment1009.CorpCode" operation="COPY"/>
+      <operationEntry operationNode="param[5]" value="clerkId" operation="COPY"/>
+      <operationEntry operationNode="param[6]" value="terminalCode" operation="COPY"/>
+      <operationEntry operationNode="param[7]" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="param[8]" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="param[9]" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="param[10]" value="payBkCode" operation="COPY"/>
+      <operationEntry operationNode="param[11]" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="param[12]" value="01010101" operation="INSERT"/>
+      <operationEntry operationNode="param[13]" value="02020202" operation="INSERT"/>
+      <operationEntry operationNode="param[14]" value="selectResult.CFX.MSG.Payment1009.BankName" operation="COPY"/>
+      <operationEntry operationNode="param[15]" value="selectResult.CFX.MSG.Payment1009.TaxOrgCode" operation="COPY"/>
+      <operationEntry operationNode="param[16]" value="selectResult.CFX.MSG.Payment1009.CorpCode" operation="COPY"/>
+      <operationEntry operationNode="param[17]" value="selectResult.CFX.MSG.Payment1009.TaxPayCode" operation="COPY"/>
+      <operationEntry operationNode="param[18]" value="selectResult.CFX.MSG.Payment1009.OuterLevyNo" operation="COPY"/>
+      <operationEntry operationNode="param[19]" value="selectResult.CFX.MSG.RealHead1009.AddWord" operation="COPY"/>
+      <operationEntry operationNode="param[20]" value="selectResult.CFX.MSG.Payment1009.TraAmt" operation="COPY"/>
+      <operationEntry operationNode="param[21]" value="selectResult.CFX.MSG.Payment1009.DetailNum" operation="COPY"/>
+      <operationEntry operationNode="param[22]" value="selectResult.CFX.MSG.RealHead1009.Result" operation="COPY"/>
+      <operationEntry operationNode="param[23]" value="serialId" operation="COPY"/>
+    </dataTask>
+    <dataTask id="e21ca39f3ba84cb4a4f2eaef0a637c93" name="tips异常" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="endEvent" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="respMsg" value="tips通讯异常" operation="INSERT"/>
+      <operationEntry operationNode="respCode" value="900003" operation="INSERT"/>
+    </dataTask>
+    <dataTask id="cac5cfab414b46618f4a7e3e9d0b760e" name="组装查询报文" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="f4d1ba11c9d44c618ca1127e94820f40" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="CFX.HEAD.MsgNo" value="2091" operation="INSERT"/>
+      <operationEntry operationNode="CFX.HEAD.MsgVer" value="1.0" operation="INSERT"/>
+      <operationEntry operationNode="CFX.HEAD.SRC" value="0001" operation="INSERT"/>
+      <operationEntry operationNode="CFX.HEAD.MsgID" value="serialId" operation="COPY"/>
+      <operationEntry operationNode="CFX.HEAD.MsgRef" value="serialId" operation="COPY"/>
+      <operationEntry operationNode="CFX.HEAD.WorkDate" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.BankNo" value="bank[0].bank_acct" operation="COPY"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.EntrustDate" value="workDate" operation="COPY"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.QueryNo" value="2018020700001" operation="INSERT"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.PayOpBkCode" value="010101202" operation="INSERT"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.BankName" value="bank[0].bkname" operation="COPY"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.TaxOrgCode" value="02301230123123" operation="INSERT"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.CorpCode" value="13asf123213" operation="INSERT"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.TaxPayCode" value="123123adsf" operation="INSERT"/>
+      <operationEntry operationNode="CFX.MSG.DeclareQuery2091.OuterLevyNo" value="adasdfsdf" operation="INSERT"/>
+    </dataTask>
+    <dataTask id="a28e66d582954126bfe302ca3431d7e2" name="数据库异常" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="endEvent" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="respMsg" value="税种信息保存错误" operation="INSERT"/>
+      <operationEntry operationNode="respCode" value="900001" operation="INSERT"/>
+    </dataTask>
+    <dataTask id="32b374531f51460e9f61455fa1b6c4c8" name="其他异常" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="endEvent" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="respMsg" value="其他异常" operation="INSERT"/>
+      <operationEntry operationNode="respCode" value="900002" operation="INSERT"/>
+    </dataTask>
+    <exceptionEvent id="620f2f3ae2be4a26820fa548e8d35722" name="异常节点" insular="false">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="32b374531f51460e9f61455fa1b6c4c8" flag="default"/>
+        </details>
+      </guides>
+    </exceptionEvent>
+  </process>
+  <canvas>
+    <nodeUIModels>
+      <nodeUI nodeId="223e7915506246b481b5af1bed04bf9c" id="bdd4dc10bd514df3b5481eea95b2017c" figureType="Terminator">
+        <point x="407" y="12"/>
+        <dimension>
+          <width>120</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="endEvent" id="cf29c2dfdd544cf9876c40b2a4c2c388" figureType="Terminator">
+        <point x="484" y="774"/>
+        <dimension>
+          <width>120</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="e789426869f94e96a838c4577bff64ab" id="afad024109d945ef9db6776b97926549" figureType="Rectangles">
+        <point x="208" y="278"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="cac5cfab414b46618f4a7e3e9d0b760e" id="a59533e063594a45bb3509fdde6418ef">
+        <point x="284" y="333"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="bf39e18b8c5f44449e0e4fb33f47ad0c" id="4219de6b9d244297888186c475795e52" figureType="Rectangles">
+        <point x="436" y="217"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="d078042506454221bd5abe1246e65b63" id="019de28f2bf44d4d8a7cdbb7bc56ad02" figureType="Rectangles">
+        <point x="219" y="566"/>
+        <dimension>
+          <width>181</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="ec36a31ce2ab4cd19ff757da715af9e6" id="88e19e0c62064188a286f942b5930c71">
+        <point x="521" y="308"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="f4d1ba11c9d44c618ca1127e94820f40" id="e6993fadaa184687951faba8d85d6ad9" figureType="Rectangles">
+        <point x="288" y="392"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="5a3361190cac46e1867b49b2887bdd79" id="db6b90a17918477d8674d524d6fca9c5" figureType="Rectangles">
+        <point x="259" y="445"/>
+        <dimension>
+          <width>162</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="30f5e75776304cd2ab9732b8d2b16621" id="bf28ae5d8ad74fd1a15bc20cfe7568dd">
+        <point x="248" y="506"/>
+        <dimension>
+          <width>144</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="bce92d7fa4ac47948150dda0a8561f50" id="74a15c5bed4f4b0aa0a5cae75c5594d2" figureType="Rectangles">
+        <point x="421" y="57"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="e743f6bfa9394a77bf5bc95c740d22ef" id="d50494845945487cb677bce066d38ab0" figureType="Rectangles">
+        <point x="417" y="126"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="6e70bb82039843f796c3f74728f9c6f2" id="95929d4ff3f64805943c11a5659f42e6" figureType="Rectangles">
+        <point x="294" y="637"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="0c5f9763360e4f26be5c401e906ece5f" id="d3c69d32b1df4a449e3395e2788eae07" figureType="Circle">
+        <point x="698" y="617"/>
+        <dimension>
+          <width>30</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="a28e66d582954126bfe302ca3431d7e2" id="7f2bcb9e50c14c21a388964ada6135bb">
+        <point x="656" y="667"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="b20d9e943cc94774968a21d48edd55cb" id="2391eb53408541519df4c986dd70c9c0" figureType="Circle">
+        <point x="466" y="445"/>
+        <dimension>
+          <width>30</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="e21ca39f3ba84cb4a4f2eaef0a637c93" id="43251c69fcb742d1b129ff14dd0b226b">
+        <point x="421" y="534"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="620f2f3ae2be4a26820fa548e8d35722" id="810a6a3349124422a7b685ceca26e3a2" figureType="Circle">
+        <point x="110" y="564"/>
+        <dimension>
+          <width>30</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="32b374531f51460e9f61455fa1b6c4c8" id="bebb247fda2b439483cd4be61186ac4c">
+        <point x="60" y="641"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+    </nodeUIModels>
+    <edgeUIModels>
+      <edgeUI lineId="27ad3d73d563411fbb84810a8fbcfa1f" sourceId="e789426869f94e96a838c4577bff64ab" targetId="cac5cfab414b46618f4a7e3e9d0b760e" isAutomatic="true">
+        <startPoint x="268" y="318"/>
+        <endPoint x="370" y="360"/>
+      </edgeUI>
+      <edgeUI lineId="939e9cb7ab9d4ca29129c9db385691a1" sourceId="bf39e18b8c5f44449e0e4fb33f47ad0c" targetId="ec36a31ce2ab4cd19ff757da715af9e6" isAutomatic="true">
+        <startPoint x="254" y="128"/>
+        <endPoint x="715" y="210"/>
+      </edgeUI>
+      <edgeUI lineId="6f3ac4f0426a4d98add006b2bde9cd17" sourceId="ec36a31ce2ab4cd19ff757da715af9e6" targetId="endEvent" isAutomatic="true">
+        <startPoint x="290" y="174"/>
+        <endPoint x="544" y="774"/>
+      </edgeUI>
+      <edgeUI lineId="1c6014ad1c744367b942dc6648389a27" sourceId="cac5cfab414b46618f4a7e3e9d0b760e" targetId="f4d1ba11c9d44c618ca1127e94820f40" isAutomatic="true">
+        <startPoint x="172" y="186"/>
+        <endPoint x="348" y="392"/>
+      </edgeUI>
+      <edgeUI lineId="4fd52b0c7acb406fb5d4e7e27aa56fe8" sourceId="f4d1ba11c9d44c618ca1127e94820f40" targetId="5a3361190cac46e1867b49b2887bdd79" isAutomatic="true">
+        <startPoint x="174" y="216"/>
+        <endPoint x="340" y="445"/>
+      </edgeUI>
+      <edgeUI lineId="fb5d39f12b4c4a3eac83db1d441e823f" sourceId="5a3361190cac46e1867b49b2887bdd79" targetId="30f5e75776304cd2ab9732b8d2b16621" isAutomatic="true">
+        <startPoint x="170" y="242"/>
+        <endPoint x="385" y="481"/>
+      </edgeUI>
+      <edgeUI lineId="0b7a99be072c482e9f0554ad8a1fdfe7" sourceId="30f5e75776304cd2ab9732b8d2b16621" targetId="d078042506454221bd5abe1246e65b63" isAutomatic="true">
+        <startPoint x="160" y="273"/>
+        <endPoint x="309" y="566"/>
+      </edgeUI>
+      <edgeUI lineId="5d677a66a4a04d52a4a69ae71f84187d" sourceId="bf39e18b8c5f44449e0e4fb33f47ad0c" targetId="e789426869f94e96a838c4577bff64ab" isAutomatic="true">
+        <startPoint x="242" y="128"/>
+        <endPoint x="268" y="278"/>
+      </edgeUI>
+      <edgeUI lineId="6e3cdc3e3dad4acbb05073b41310bb59" sourceId="bce92d7fa4ac47948150dda0a8561f50" targetId="e743f6bfa9394a77bf5bc95c740d22ef" isAutomatic="true">
+        <startPoint x="240" y="48"/>
+        <endPoint x="477" y="126"/>
+      </edgeUI>
+      <edgeUI lineId="a0f903a91c9f4d35847b7a1185798491" sourceId="223e7915506246b481b5af1bed04bf9c" targetId="bce92d7fa4ac47948150dda0a8561f50" isAutomatic="true">
+        <startPoint x="233" y="21"/>
+        <endPoint x="481" y="57"/>
+      </edgeUI>
+      <edgeUI lineId="fc6f850f3d9d4836bbe840a1a54752d4" sourceId="d078042506454221bd5abe1246e65b63" targetId="6e70bb82039843f796c3f74728f9c6f2" isAutomatic="true">
+        <startPoint x="154" y="303"/>
+        <endPoint x="354" y="637"/>
+      </edgeUI>
+      <edgeUI lineId="0a82c7e9973b4e4f8d503a6fb78b82ca" sourceId="6e70bb82039843f796c3f74728f9c6f2" targetId="endEvent" isAutomatic="true">
+        <startPoint x="177" y="338"/>
+        <endPoint x="544" y="774"/>
+      </edgeUI>
+      <edgeUI lineId="8a75fd0ee0e64ff88bba0560590b381e" sourceId="0c5f9763360e4f26be5c401e906ece5f" targetId="a28e66d582954126bfe302ca3431d7e2" isAutomatic="true">
+        <startPoint x="356" y="323"/>
+        <endPoint x="824" y="649"/>
+      </edgeUI>
+      <edgeUI lineId="2f81f35da08649eea906740c810940c2" sourceId="a28e66d582954126bfe302ca3431d7e2" targetId="endEvent" isAutomatic="true">
+        <startPoint x="358" y="353"/>
+        <endPoint x="544" y="774"/>
+      </edgeUI>
+      <edgeUI lineId="90cef08204384846baa90e4646831334" sourceId="f4d1ba11c9d44c618ca1127e94820f40" targetId="b20d9e943cc94774968a21d48edd55cb" isAutomatic="true">
+        <startPoint x="174" y="216"/>
+        <endPoint x="634" y="427"/>
+      </edgeUI>
+      <edgeUI lineId="36b261de6c484f1ba200199a0efffc33" sourceId="b20d9e943cc94774968a21d48edd55cb" targetId="e21ca39f3ba84cb4a4f2eaef0a637c93" isAutomatic="true">
+        <startPoint x="240" y="237"/>
+        <endPoint x="589" y="516"/>
+      </edgeUI>
+      <edgeUI lineId="bf72cb8993fa4306827da009af15da6b" sourceId="e21ca39f3ba84cb4a4f2eaef0a637c93" targetId="endEvent" isAutomatic="true">
+        <startPoint x="240" y="287"/>
+        <endPoint x="544" y="774"/>
+      </edgeUI>
+      <edgeUI lineId="d8f9347d58524dacaacd9e0077c6c167" sourceId="620f2f3ae2be4a26820fa548e8d35722" targetId="32b374531f51460e9f61455fa1b6c4c8" isAutomatic="true">
+        <startPoint x="62" y="297"/>
+        <endPoint x="228" y="623"/>
+      </edgeUI>
+      <edgeUI lineId="a19d2723cbdb4d469942f44b478c5b6a" sourceId="32b374531f51460e9f61455fa1b6c4c8" targetId="endEvent" isAutomatic="true">
+        <startPoint x="60" y="340"/>
+        <endPoint x="544" y="774"/>
+      </edgeUI>
+      <edgeUI lineId="97da5ab2345e4e5e95d639ee3360c45e" sourceId="d078042506454221bd5abe1246e65b63" targetId="0c5f9763360e4f26be5c401e906ece5f" isAutomatic="true">
+        <startPoint x="154" y="303"/>
+        <endPoint x="866" y="599"/>
+      </edgeUI>
+      <edgeUI lineId="87b1bcbdf3cc4e1e8146429f4c3a8d1a" sourceId="bf39e18b8c5f44449e0e4fb33f47ad0c" targetId="0c5f9763360e4f26be5c401e906ece5f" isAutomatic="true">
+        <startPoint x="254" y="128"/>
+        <endPoint x="866" y="599"/>
+      </edgeUI>
+      <edgeUI lineId="c10fc24ee341440e8a7ef30500441ee3" sourceId="e743f6bfa9394a77bf5bc95c740d22ef" targetId="bf39e18b8c5f44449e0e4fb33f47ad0c" isAutomatic="true">
+        <startPoint x="477" y="166"/>
+        <endPoint x="496" y="217"/>
+      </edgeUI>
+    </edgeUIModels>
+  </canvas>
+</definitions>

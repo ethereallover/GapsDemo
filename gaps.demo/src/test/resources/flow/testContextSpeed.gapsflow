@@ -1,0 +1,177 @@
+<definitions>
+  <process id="testContext" name="测试上下文处理">
+    <startEvent id="e0fa3f56a21d4e9f8d1df5adeb6f34ad" name="开始" insular="false" componentId="START">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="6219558a169544459b3e4959df1ee526" flag="default"/>
+        </details>
+      </guides>
+    </startEvent>
+    <endEvent id="endEvent" name="结束" insular="false"/>
+    <ioSpace/>
+    <serviceTask id="79d6a82470624efb84475fbd6c1e0410" name="计数器" insular="false" componentId="add">
+      <guides value="this &gt;= 100" type="default">
+        <details>
+          <guide nextNode="" flag="true"/>
+          <guide nextNode="58e8cd9e9e1942e8899a161c44c52a52" flag="default"/>
+        </details>
+      </guides>
+      <input name="a" title="" describe="" request="true" className="java.math.BigDecimal">
+        <value type="NODE">i</value>
+      </input>
+      <input name="b" title="" describe="" request="true" className="java.math.BigDecimal">
+        <value type="EL">1</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">i</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="6219558a169544459b3e4959df1ee526" name="赋值变量" insular="false" componentId="dataSetValue">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="d0623650c87141c19fa48f56018274ca" flag="default"/>
+        </details>
+      </guides>
+      <input name="value" title="" describe="" request="false" className="java.lang.String">
+        <value type="STATIC">0</value>
+      </input>
+      <result name="${this}" describe="" request="true">
+        <value type="EL">i</value>
+      </result>
+    </serviceTask>
+    <dataTask id="77672ceecac34ced9cd2aada1e1a5a14" name="复制数据" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="ddbd384b24794d54ad204ab7083c1aca" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="cloneArray" value="a.array" operation="COPY"/>
+      <operationEntry operationNode="b.cloneArray" value="b.array[2][3]" operation="COPY"/>
+    </dataTask>
+    <dataTask id="d0623650c87141c19fa48f56018274ca" name="新增数据" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="77672ceecac34ced9cd2aada1e1a5a14" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="a.b" value="test1" operation="INSERT"/>
+      <operationEntry operationNode="a.a.b.c.d.e.f.g.h" value="test2" operation="INSERT"/>
+      <operationEntry operationNode="a.array[0]" value="test3" operation="INSERT"/>
+      <operationEntry operationNode="a.array[1].a" value="test4" operation="INSERT"/>
+      <operationEntry operationNode="a.c.d.e" value="test5" operation="INSERT"/>
+      <operationEntry operationNode="a.array[1].b" value="test6" operation="INSERT"/>
+      <operationEntry operationNode="b.array[2][3][0].a.b.c.d.e.f.g" value="test7" operation="INSERT"/>
+    </dataTask>
+    <dataTask id="ddbd384b24794d54ad204ab7083c1aca" name="移动数据" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="79d6a82470624efb84475fbd6c1e0410" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="cloneArray[2]" value="cloneArray[1]" operation="MOVE"/>
+      <operationEntry operationNode="b.cloneNode" value="b.array[2][3][0]" operation="MOVE"/>
+    </dataTask>
+    <switchGateway id="58e8cd9e9e1942e8899a161c44c52a52" name="条件节点" insular="false" componentId="SWITCH">
+      <guides value="" type="expression">
+        <details>
+          <guide nextNode="endEvent" flag="i&gt;100"/>
+          <guide nextNode="d0623650c87141c19fa48f56018274ca" flag="default"/>
+        </details>
+      </guides>
+    </switchGateway>
+  </process>
+  <canvas>
+    <nodeUIModels>
+      <nodeUI nodeId="e0fa3f56a21d4e9f8d1df5adeb6f34ad" id="1bde06563043447db41cb971d2b630e1" figureType="Terminator">
+        <point x="505" y="84"/>
+        <dimension>
+          <width>120</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="endEvent" id="5a2cfab40eb1449785aa45503a28a186" figureType="Terminator">
+        <point x="505" y="516"/>
+        <dimension>
+          <width>120</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="d0623650c87141c19fa48f56018274ca" id="493a2a82dbee4b738a5828c7819e2194">
+        <point x="505" y="200"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="77672ceecac34ced9cd2aada1e1a5a14" id="8cad4bad58514e32aa30cd428334508a">
+        <point x="505" y="263"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="ddbd384b24794d54ad204ab7083c1aca" id="8940f79af03844d5869849e97a38042e">
+        <point x="505" y="326"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="79d6a82470624efb84475fbd6c1e0410" id="2e57581154a9459592ea60e21db9a2cb" figureType="Rectangles">
+        <point x="505" y="389"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="6219558a169544459b3e4959df1ee526" id="a6b44a8f48514926b0cb3f25f736334a" figureType="Rectangles">
+        <point x="505" y="137"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="58e8cd9e9e1942e8899a161c44c52a52" id="0b3cfc1972254e63ae1db5033082ecc2" figureType="Switch">
+        <point x="505" y="452"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+    </nodeUIModels>
+    <edgeUIModels>
+      <edgeUI lineId="91c3b79c448c49bd95081e2e0218bfce" sourceId="d0623650c87141c19fa48f56018274ca" targetId="77672ceecac34ced9cd2aada1e1a5a14" isAutomatic="false">
+        <startPoint x="565" y="240"/>
+        <endPoint x="565" y="263"/>
+      </edgeUI>
+      <edgeUI lineId="71d650c4b0224cd7939a45cf8304797b" sourceId="6219558a169544459b3e4959df1ee526" targetId="d0623650c87141c19fa48f56018274ca" isAutomatic="false">
+        <startPoint x="565" y="177"/>
+        <endPoint x="565" y="200"/>
+      </edgeUI>
+      <edgeUI lineId="9db63a9b123f489e88f2edb78c1bb2ed" sourceId="58e8cd9e9e1942e8899a161c44c52a52" targetId="endEvent" isAutomatic="false">
+        <startPoint x="553" y="491"/>
+        <endPoint x="565" y="516"/>
+      </edgeUI>
+      <edgeUI lineId="f8aae868cd5441b0a2c0ff2ff452eae8" sourceId="58e8cd9e9e1942e8899a161c44c52a52" targetId="d0623650c87141c19fa48f56018274ca" isAutomatic="false">
+        <startPoint x="577" y="491"/>
+        <endPoint x="565" y="200"/>
+      </edgeUI>
+      <edgeUI lineId="a104831d91214cb4b71225f8307c3c9f" sourceId="e0fa3f56a21d4e9f8d1df5adeb6f34ad" targetId="6219558a169544459b3e4959df1ee526" isAutomatic="false">
+        <startPoint x="565" y="105"/>
+        <endPoint x="565" y="137"/>
+      </edgeUI>
+      <edgeUI lineId="3bcfd62430bd4e34affa2397f4a81c4f" sourceId="77672ceecac34ced9cd2aada1e1a5a14" targetId="ddbd384b24794d54ad204ab7083c1aca" isAutomatic="false">
+        <startPoint x="565" y="303"/>
+        <endPoint x="565" y="326"/>
+      </edgeUI>
+      <edgeUI lineId="6d261226275f42ffb0c2b0b681b8a625" sourceId="ddbd384b24794d54ad204ab7083c1aca" targetId="79d6a82470624efb84475fbd6c1e0410" isAutomatic="false">
+        <startPoint x="565" y="366"/>
+        <endPoint x="565" y="389"/>
+      </edgeUI>
+      <edgeUI lineId="f6b0406ebf1a4272a100dedf4416621d" sourceId="79d6a82470624efb84475fbd6c1e0410" targetId="58e8cd9e9e1942e8899a161c44c52a52" isAutomatic="false">
+        <startPoint x="565" y="429"/>
+        <endPoint x="565" y="452"/>
+      </edgeUI>
+    </edgeUIModels>
+  </canvas>
+</definitions>

@@ -1,0 +1,400 @@
+<business-types>
+  <business-type id="54ed9b449a5943b695d8c4c85778dd7f" name="bigint" title="BIGINT" standard-type-id="99909974d58a4645a542dd4288a9429b">
+    <description></description>
+    <placeholder-value-list/>
+  </business-type>
+  <business-type id="d27e39a55d26498fbd2ba0860aca0368" name="datetime" title="DATETIME" standard-type-id="524a9ec6ec2f4c7aa08787ca95a71412">
+    <description></description>
+    <placeholder-value-list/>
+  </business-type>
+  <business-type id="3ee78c160d0547649701f2b2ad378b87" name="decimal" title="decimal" standard-type-id="00b07a065a7d46068adfb3572d7d4ac6">
+    <description></description>
+    <placeholder-value-list/>
+  </business-type>
+  <business-type id="0956e6d54cb844bdb3b29b894e963c73" name="int" title="INT" standard-type-id="8593c5dcbe5b441bbf39dbaaa53de55f">
+    <description>整形123</description>
+    <placeholder-value-list/>
+  </business-type>
+  <business-type id="a09db20bdf2843df8f48eb52090b12c5" name="log_time" title="LOG_TIME" standard-type-id="524a9ec6ec2f4c7aa08787ca95a71412">
+    <description></description>
+    <placeholder-value-list/>
+  </business-type>
+  <business-type id="95439f095b5d49719dadfd97a1e0b3da" name="rvarchar128" title="VARCHAR128" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="128"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="60a17b538c9d4121a026d9c1a9ba4a05" name="t_enable_flag" title="授权标识" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <dict-id>bfd2979785bb41ebb094f0a12bcee59b</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="2"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="2dc6110b9bd2427da8d2f6216293ebc6" name="t_is_null" title="是否为空" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <dict-id>5ab723736c614d67a1d297f5f8724477</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="7bae1addec3b4b5eb030b7f96a100114" name="t_is_show" title="是否授权" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <dict-id>c7250f271903417d9410b0748f130291</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="8155dafe41604356b68acdd119e6a2fa" name="t_netcom_msg_type" title="通信条件类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>通信条件表</description>
+    <dict-id>c38cb5041a6747289b07843670e0baf6</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="67e7169cae57455cb5c98629a8f6e5be" name="t_netcom_result_cond" title="结果返回条件" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>通信结果表</description>
+    <dict-id>372da60d88b24897a1ddad0922975d7d</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="6954a1f45bba4df89158c4b3d12e1e43" name="t_netcom_result_type" title="通信结果类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>通信结果表</description>
+    <dict-id>4e35a439a52e45209a1d807da255bf6f</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="3763a58e6ff3496297c0c86642ff93de" name="t_netcom_result_uitype" title="结果显示类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>通信结果表</description>
+    <dict-id>f26fb13a9f944d62b6bcbc2ea2def5e4</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="831473f81ab94c909e7de71e31dcee6c" name="t_netcom_server_type" title="通信服务类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>通信服务表</description>
+    <dict-id>ff33de76cd6448739d1aa00edc6af005</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="39252d67dcf7455283a5f51d4bef6f73" name="t_netcom_type" title="通信类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>网络通信表</description>
+    <dict-id>f71ae2abc9c544e9a730b38381c35f74</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="eb9a888b18a44b5685d0f19228acc041" name="t_org_level" title="机构级别" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>机构信息表</description>
+    <dict-id>c42b7b7bf8d34d5ab0ed9c1762dbd990</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="cc3ae8bf1e1a4e7585e7907dcfcb1fdc" name="t_org_type" title="机构类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>机构信息表</description>
+    <dict-id>28156f32f8064839bd6be45da80a7009</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="89128122b5b849bf8b97a03e4b6d8e11" name="t_patam_type" title="参数类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <dict-id>9bd478a43bd94daf9c23985ea4303d4c</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="2c92106783b4437f9d40fdcdcc695cf0" name="t_tran_is_control" title="是否控制访问权限" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <dict-id>0ceb5029084340159011a73de3bbfefd</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="0c1808244f8544f29c5dc5c6fd42c6d0" name="t_tran_type" title="交易类型" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>交易信息表</description>
+    <dict-id>d10aecb5b7cb4964b1d9ca47167e3bea</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="74991289e80648c0926c9b9ac92b4b9e" name="t_user_cert_type" title="T_USER_CERT_TYPE" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>用户信息表</description>
+    <dict-id>2288cc324db2452587cfc4125e36005a</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="2"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="c58dcff887e04ed5b1b9ed5f9e001f78" name="t_user_degree" title="学历" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>用户信息表</description>
+    <dict-id>a15d35b1ec1c46458c22bc9ba2304427</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="2"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="543d9f15dd7b44edaf24a89ffeb1ef33" name="t_user_gender" title="性别" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>用户信息表</description>
+    <dict-id>befb253d8caa46868dcdaab2bfe7d2f0</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="e5cbd5fecf2c4575a4d29556f447bf35" name="t_user_station" title="用户岗位" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>用户信息表</description>
+    <dict-id>afce87a353a34937896f8b294f6175de</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="6"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="5492b518c6cf4bc4876deb06daacbe87" name="t_user_status" title="用户状态" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description>用户信息表</description>
+    <dict-id>1ad7a339babd4fdda617d6d077b25c94</dict-id>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="6932c35fdf274c698a0b8bede2dde35f" name="test" title="TEST" standard-type-id="c7e743f44ecc4911ab4cb55b2a4a3686">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="2"/>
+      <placeholder-value name="precision" value="3"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="2dfdec3032ff4ab8af37fd2dd39eed69" name="timestamp" title="时间戳" standard-type-id="d11d90f40aae43e68b75f99eb5ec3709">
+    <description></description>
+    <placeholder-value-list/>
+  </business-type>
+  <business-type id="f687fa79e8d94b8d9cdda41a0a30197c" name="varchar1" title="VARCHAR1" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="1"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="8f7a9d50744c4b138cb2d637e3ef0866" name="varchar10" title="VARCHAR10" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="10"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="bc05a9c894f84d9c9202b14f1251d1c8" name="varchar100" title="VARCHAR100" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="100"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="8ae6a699442d4de7bda2f65831843547" name="varchar12" title="VARCHAR12" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="12"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="5a789635522b4859bdae92708ae8c2d8" name="varchar120" title="VARCHAR120" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="120"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="be913a47f8a74f9b8657e341713a3ea5" name="varchar13" title="VARCHAR13" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="13"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="4208438034494f0fb0348c7443472dd1" name="varchar14" title="VARCHAR14" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="14"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="4db31ab1c749424b8efe8e784d548193" name="varchar15" title="VARCHAR15" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="15"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="99a8d72db67748e68bb9fb2d212e7fe2" name="varchar16" title="VARCHAR16" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="16"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="19a2fa5da3324a3fb4e6caac5db03ad2" name="varchar19" title="VARCHAR19" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="19"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="274154a90d534d468c2382923de18a44" name="varchar2" title="VARCHAR2" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="2"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="4a343c6eccd949fa83e3c1295c202196" name="varchar20" title="VARCHAR20" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="20"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="54a5768f1a514c64ba4a8ab74328c29c" name="varchar200" title="VARCHAR200" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="200"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="f99bf4100c98495aa147f544318ce503" name="varchar216" title="VARCHAR216" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="216"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="2202e758e5074ad4a39db4a894bd6acb" name="varchar22" title="VARCHAR22" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="22"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="4324f7a0d98449099f2fc0096ee9ac46" name="varchar24" title="VARCHAR24" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="24"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="5d21d882a8454ed5b245b5d561796717" name="varchar240" title="VARCHA240" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="240"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="0571313d6a5d4d419091fd2df6de026e" name="varchar25" title="VARCHAR25" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="25"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="2e90d244df2d445fa366f17ed5a09f81" name="varchar254" title="VARCHAR254" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="254"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="5a66760319214a7eb47b95451f2ae178" name="varchar256" title="VARCHAR256" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="256"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="609298fcb3ad41b1bee9b9980948b142" name="varchar27" title="VARCHAR27" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="27"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="9bbfbdea65ab40bba56d8b7207b1be8a" name="varchar3" title="VARCHAR3" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="3"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="dd29e6094aca4cf69349ed9d9e9870f0" name="varchar30" title="VARCHAR30" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="30"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="da1408348cc444e7951d9620e88cef9a" name="varchar32" title="VARCHAR32" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="32"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="daf9421140d4455ab10cb9ad0b92eb46" name="varchar34" title="VARCHAR34" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="34"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="74e26e1900f74406ab85fffd93cfbe82" name="varchar36" title="VARCHAR36" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="36"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="b2f9acc54f1b429da4f1ce3894c42e10" name="varchar4" title="VARCHAR4" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="4"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="983639281a24470f8488ae2fdd6f664b" name="varchar40" title="VARCHAR40" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="40"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="bf463ad8cc484dd280b2f4a83756d371" name="varchar45" title="VARCHAR45" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="45"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="5efa369fde8d4868966387bb6b4f7789" name="varchar48" title="VARCHAR48" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="48"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="8cf900a546894e59a89cbafd7568b297" name="varchar5" title="VARCHAR5" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="5"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="0961d47cde6047fa9995d8bcd148cb30" name="varchar50" title="VARCHAR50" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="50"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="3e757fc3cb2f482ba16582875d5483bf" name="varchar512" title="VARCHAR512" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="512"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="ae91efd36e444a99a791810e6a0b33cd" name="varchar6" title="VARCHAR6" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="6"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="aa450a0fc2494b8287f0bc7073265106" name="varchar60" title="VARCHAR60" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="60"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="3b5d06f2fba94d25b8678a80a6f0a836" name="varchar64" title="VARCHAR64" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="64"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="04b39117bcd040c8a2cece487170eac6" name="varchar72" title="VARCHAR72" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="72"/>
+    </placeholder-value-list>
+  </business-type>
+  <business-type id="066d440d21f442189a91b360b301a219" name="varchar8" title="VARCHAR8" standard-type-id="62acf003fbd1457f9a25d16e58286401">
+    <description></description>
+    <placeholder-value-list>
+      <placeholder-value name="length" value="8"/>
+    </placeholder-value-list>
+  </business-type>
+</business-types>

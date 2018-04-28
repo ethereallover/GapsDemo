@@ -1,0 +1,134 @@
+<definitions>
+  <process id="d2196445fe504bc2b3c89b48cc30ff4d" name="testSubtrans">
+    <startEvent id="a3d3edc01eb1496bb5f3fd3b534547a4" name="开始" insular="false" componentId="START">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="8903d028369c4f8d92afca3a3488d658" flag="default"/>
+        </details>
+      </guides>
+    </startEvent>
+    <endEvent id="endEvent" name="结束" insular="false"/>
+    <ioSpace/>
+    <serviceTask id="8903d028369c4f8d92afca3a3488d658" name="获取流水号" insular="false" componentId="2a67fcc4c927405a899cff216ad8e0cd" nodeDescribe="">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="394229b169b74304bb249a27ebdb25d9" flag="default"/>
+        </details>
+      </guides>
+      <result request="false">
+        <value type="EL">obj.id_num</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="4c88d3df0d714a0ab4d15837266efab5" name="新增数据" insular="false" componentId="9089937ffcb44114bac1f180895e2945" nodeDescribe="">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="endEvent" flag="default"/>
+        </details>
+      </guides>
+      <input name="tableName" title="表名" describe="" request="true" className="java.lang.String">
+        <value type="STATIC">tips_trans</value>
+        <config style="2" type="table" source="8aaf99d80bd84275a0e5ed434b3b6754"/>
+      </input>
+      <input name="operation" title="操作" describe="" request="true" className="java.lang.String">
+        <value type="STATIC">add</value>
+        <config style="2" type="dict" source="8aaf99d80bd84275a0e5ed434b3b6754"/>
+      </input>
+      <input name="parameter" title="参数" describe="" request="true" className="java.lang.Object">
+        <value type="NODE">obj</value>
+      </input>
+      <result describe="" request="true">
+        <value type="STATIC">result</value>
+      </result>
+    </serviceTask>
+    <serviceTask id="394229b169b74304bb249a27ebdb25d9" name="时间戳生成" insular="false" componentId="c1ed3b366df1484abb14a706d10be51a" nodeDescribe="根据当前操作系统时间生成时间戳，毫秒级">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="5054b22f9b7b402585eae419d24f035d" flag="default"/>
+        </details>
+      </guides>
+      <result describe="" request="true">
+        <value type="STATIC">obj.acc_open_date</value>
+      </result>
+    </serviceTask>
+    <dataTask id="5054b22f9b7b402585eae419d24f035d" name="数据操作" insular="false" componentId="DATATASK">
+      <guides value="" type="default">
+        <details>
+          <guide nextNode="4c88d3df0d714a0ab4d15837266efab5" flag="default"/>
+        </details>
+      </guides>
+      <operationEntry operationNode="obj.due_date" value="sss" operation="INSERT"/>
+      <operationEntry operationNode="obj.grander" value="1" operation="INSERT"/>
+      <operationEntry operationNode="obj.host_recv_num" value="200" operation="INSERT"/>
+      <operationEntry operationNode="obj.bill_delivery_way" value="asdwrq" operation="INSERT"/>
+      <operationEntry operationNode="obj.hash_value" value="33" operation="INSERT"/>
+    </dataTask>
+  </process>
+  <canvas>
+    <nodeUIModels>
+      <nodeUI nodeId="a3d3edc01eb1496bb5f3fd3b534547a4" id="ce826c4d25054226b873dbd1fed716db" figureType="Terminator">
+        <point x="498" y="95"/>
+        <dimension>
+          <width>120</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="endEvent" id="a637e787e6cd446c8de69b8a5d5b5634" figureType="Terminator">
+        <point x="498" y="477"/>
+        <dimension>
+          <width>120</width>
+          <height>30</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="8903d028369c4f8d92afca3a3488d658" id="3bfd074ab9164b40a022cf4509e89dc7" figureType="Rectangles">
+        <point x="498" y="163"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="394229b169b74304bb249a27ebdb25d9" id="d831fead3c0242668c4ebedef88b1eaa" figureType="Rectangles">
+        <point x="498" y="241"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="5054b22f9b7b402585eae419d24f035d" id="c1145c5e41414861b079e29cfbc496fb">
+        <point x="498" y="319"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+      <nodeUI nodeId="4c88d3df0d714a0ab4d15837266efab5" id="a9b3c91c4a96436b955cc2aa28211a2e" figureType="Rectangles">
+        <point x="498" y="397"/>
+        <dimension>
+          <width>120</width>
+          <height>40</height>
+        </dimension>
+      </nodeUI>
+    </nodeUIModels>
+    <edgeUIModels>
+      <edgeUI lineId="b4f6727cc63949d08ab430a23ec28c45" sourceId="394229b169b74304bb249a27ebdb25d9" targetId="5054b22f9b7b402585eae419d24f035d" isAutomatic="false">
+        <startPoint x="558" y="281"/>
+        <endPoint x="558" y="319"/>
+      </edgeUI>
+      <edgeUI lineId="5200a64cdc974c4f9b7a44abdd6f324b" sourceId="8903d028369c4f8d92afca3a3488d658" targetId="394229b169b74304bb249a27ebdb25d9" isAutomatic="false">
+        <startPoint x="558" y="203"/>
+        <endPoint x="558" y="241"/>
+      </edgeUI>
+      <edgeUI lineId="f7fdddaa25224ba0b1ca263ab3ce8961" sourceId="a3d3edc01eb1496bb5f3fd3b534547a4" targetId="8903d028369c4f8d92afca3a3488d658" isAutomatic="false">
+        <startPoint x="558" y="125"/>
+        <endPoint x="558" y="163"/>
+      </edgeUI>
+      <edgeUI lineId="684b52f753774df19e64c71eaeccf55d" sourceId="5054b22f9b7b402585eae419d24f035d" targetId="4c88d3df0d714a0ab4d15837266efab5" isAutomatic="true">
+        <startPoint x="558" y="359"/>
+        <endPoint x="558" y="397"/>
+      </edgeUI>
+      <edgeUI lineId="220c644a43b04a288b2c90264e9e402a" sourceId="4c88d3df0d714a0ab4d15837266efab5" targetId="endEvent" isAutomatic="true">
+        <startPoint x="558" y="437"/>
+        <endPoint x="558" y="477"/>
+      </edgeUI>
+    </edgeUIModels>
+  </canvas>
+</definitions>

@@ -1,0 +1,323 @@
+<componentDefines>
+  <componentDefine id="add" name="数字相加" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="a" title="" describe="" request="true" className="java.math.BigDecimal"/>
+        <input name="b" title="" describe="" request="true" className="java.math.BigDecimal"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.math.BigDecimal"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="add" className="com.hundsun.gaps.flowcomponents.AddNum"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.lang.Exception"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="printAll" name="打印参数" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="a" title="参数A" request="false" className="java.lang.Object"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output describe="" request="false" className=""/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="print" className="com.hundsun.gaps.flowcomponents.PrintAll"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="测试异常" describe="测试异常" className="java.lang.Exception"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="saveString" name="字符串存储" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="string" title="" describe="" request="false" className="java.lang.String"/>
+        <input name="filePath" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="存储路径" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="save" className="com.hundsun.gaps.flowcomponents.SaveString"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.io.IOException"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="readString" name="文件读取" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="filePath" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="read" className="com.hundsun.gaps.flowcomponents.ReadString"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.io.IOException"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="appendFile" name="文件追加" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="path1" title="路径1" describe="" request="false" className="java.lang.String"/>
+        <input name="path2" title="路径2" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="false" className=""/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="append" className="com.hundsun.gaps.flowcomponents.FileComponent"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.io.IOException"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="dataSetValue" name="赋值变量" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="value" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="put" className="com.hundsun.gaps.flowcomponents.DataSetValue"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="getLength" name="获取长度" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="str" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="long"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="getLength" className="com.hundsun.gaps.flowcomponents.FileComponent"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="c645f146303f431a8eb4bb4ff3115453" name="格式化日期" group="" using="true" description="日期格式化函数">
+    <operations>
+      <inputExecute order="1">
+        <input name="timestamp" title="需要格式化的时间戳" describe="需要格式化的时间戳" request="false" className="java.lang.Long"/>
+        <input name="pattern" title="格式化模板" describe="格式化模板" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="dateFormat" className="com.hundsun.gaps.flowcomponents.DateFormat"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="c1ed3b366df1484abb14a706d10be51a" name="时间戳生成" group="" using="true" description="根据当前操作系统时间生成时间戳，毫秒级">
+    <operations>
+      <inputExecute order="1"/>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.Long"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="getTimeStamp" className="com.hundsun.gaps.flowcomponents.DateFormat"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="6ea04ed4849348fa99ccd62e492d6f4c" name="数据库查询" group="数据库操作" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="sql" title="SQL语句" describe="" request="true" className="java.lang.String"/>
+        <input name="parameter" title="参数" describe="" request="false" className="java.lang.String[]"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.util.List"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="query" className="com.hundsun.gaps.flowcomponents.DataBaseComponent"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.sql.SQLException"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="2a67fcc4c927405a899cff216ad8e0cd" name="获取流水号" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1"/>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="getSerialId" className="com.hundsun.gaps.flowcomponents.SerialNumber"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="80adecfb9e4a4b2f893edb437aa23e90" name="xml转入上下文" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="xmlString" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.util.Map"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="xmlToMap" className="com.hundsun.gaps.flowcomponents.XmlProcessor"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="53c93d6ee37e4557a34cc5104822afb4" name="上下文转Xml" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="map" title="" describe="" request="false" className="java.util.Map"/>
+        <input name="encode" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="mapToXml" className="com.hundsun.gaps.flowcomponents.XmlProcessor"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="3223e2076b694afc8a1d95843d3fa72b" name="发送请求" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="host" title="地址" describe="" request="true" className="java.lang.String"/>
+        <input name="port" title="端口号" describe="" request="true" className="int"/>
+        <input name="message" title="信息" describe="" request="true" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="返回信息" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="requestServer" className="com.hundsun.gaps.flowcomponents.SocketComponent"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="665acdab6ec74993994ac1d317a98996" name="数据库存储" group="数据库操作" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="sql" title="" describe="" request="true" className="java.lang.String"/>
+        <input name="parameter" title="" describe="" request="false" className="java.lang.String[]"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="int"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="save" className="com.hundsun.gaps.flowcomponents.DataBaseComponent"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.sql.SQLException"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="8f3ad0294adb4c4e9b21e6939d0fd67e" name="tips申报" group="" using="true" description="发送tips申报请求&#xd;&#xa;">
+    <operations>
+      <inputExecute order="1">
+        <input name="xmlMsg" title="" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="tipsPut" className="com.hundsun.gaps.flowcomponents.SocketComponent"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.io.IOException"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="f38eccbaf51d4da29ddb92cd258366fc" name="Spring测试组件" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1"/>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="false" className=""/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="test" className="com.hundsun.gaps.flowcomponents.SpringTestComponent"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="afa9913549814413bb92c1127ef22bba" name="测试图片组件" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="fileName" title="文件名" describe="" request="false" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="org.springframework.core.io.Resource"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="getPngResource" className="com.hundsun.gaps.flowcomponents.PngComponent"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="685b076c79004141b5c7cd56064a7264" name="事务提交" group="数据库操作" using="true" description="">
+    <operations>
+      <inputExecute order="1"/>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="false" className=""/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="commit" className="com.hundsun.gaps.flowcomponents.TransactionComponent"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="b80b250d3d05413d9af5909dbc824aa8" name="事务回滚" group="数据库操作" using="true" description="">
+    <operations>
+      <inputExecute order="1"/>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="false" className=""/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="rollback" className="com.hundsun.gaps.flowcomponents.TransactionComponent"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="9089937ffcb44114bac1f180895e2945" name="Dsl数据库组件" group="数据库操作" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="tableName" title="表名" describe="" request="true" className="java.lang.String">
+          <config style="2" type="table" source="8aaf99d80bd84275a0e5ed434b3b6754"/>
+        </input>
+        <input name="operation" title="操作" describe="" request="true" className="java.lang.String">
+          <config style="2" type="dict" source="8aaf99d80bd84275a0e5ed434b3b6754"/>
+        </input>
+        <input name="parameter" title="参数" describe="" request="true" className="java.lang.Object"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="" request="true" className="java.lang.Object"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="doOperation" className="com.hundsun.gaps.flowcomponents.DslComponent"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.lang.Exception"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="18fe6bd7e8d24336861cebc2f6d07cc4" name="Dsl数据库分页查询" group="数据库操作" using="true" description="分页查询&#xd;&#xa;@param tableName&#xd;&#xa;表名&#xd;&#xa;@param pageSize&#xd;&#xa;分页大小&#xd;&#xa;@param pageNum&#xd;&#xa;第几页&#xd;&#xa;@param parameter&#xd;&#xa;传入参数&#xd;&#xa;@param orderBys&#xd;&#xa;排序参数&#xd;&#xa;@return&#xd;&#xa;">
+    <operations>
+      <inputExecute order="1">
+        <input name="tableName" title="表名" describe="" request="true" className="java.lang.String"/>
+        <input name="pageSize" title="分页大小" describe="" request="true" className="int"/>
+        <input name="pageNum" title="页码" describe="" request="true" className="int"/>
+        <input name="parameter" title="查询参数" describe="" request="false" className="java.lang.Object"/>
+        <input name="orderBys" title="排序参数" describe="" request="false" className="org.tinygroup.jdbctemplatedslsession.daosupport.OrderBy[]"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="返回结果" request="true" className="java.lang.Object"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="queryPage" className="com.hundsun.gaps.flowcomponents.DslQueryPageComponent"/>
+    </operations>
+    <exceptions>
+      <exceptionEntry name="" describe="" className="java.lang.Exception"/>
+    </exceptions>
+  </componentDefine>
+  <componentDefine id="subString" name="截取字符串" group="" using="true" description="">
+    <operations>
+      <inputExecute order="1">
+        <input name="str" title="原有字符串" describe="" request="true" className="java.lang.String"/>
+        <input name="start" title="截取起始位置" describe="" request="true" className="int"/>
+        <input name="end" title="截取结束位置" describe="" request="true" className="int"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="截取后的字符串" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="substring" className="org.apache.commons.lang.StringUtils"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+  <componentDefine id="6570c8a4b1fa4e57b43cfc3565076013" name="替换字符串" group="" using="true" description="替换字符串">
+    <operations>
+      <inputExecute order="1">
+        <input name="text" title="原字符串" describe="" request="true" className="java.lang.String"/>
+        <input name="searchString" title="旧字符串" describe="" request="true" className="java.lang.String"/>
+        <input name="replacement" title="新字符串" describe="" request="true" className="java.lang.String"/>
+      </inputExecute>
+      <outputExecute order="3" argsOrder="2">
+        <output name="" title="" describe="替换后的字符串" request="true" className="java.lang.String"/>
+      </outputExecute>
+      <methodExecute order="2" argsOrder="1" methodName="replace" className="org.apache.commons.lang.StringUtils"/>
+    </operations>
+    <exceptions/>
+  </componentDefine>
+</componentDefines>
