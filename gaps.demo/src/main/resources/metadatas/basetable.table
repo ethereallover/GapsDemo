@@ -12,7 +12,7 @@
     <table-field standard-field-id="3570f9e2aa4d48648cc15a0afa0dafcf" primary="false" unique="false" not-null="false" id="pay_opbankno" auto-increase="false"/>
     <table-field standard-field-id="b4fa64065a58485fb89ac09db5903b30" primary="false" unique="false" not-null="false" id="addword" auto-increase="false"/>
   </table>
-  <table id="235edc33ae58475fac71ad771058e569" name="tips_contacts" title="联系人登记表" schema="" group="未分组">
+  <table id="235edc33ae58475fac71ad771058e569" name="tips_contacts" title="联系人登记表" schema="" group="contanct">
     <description></description>
     <table-field standard-field-id="7e63eb87c3e747efae6acad171124a1d" primary="true" unique="true" not-null="true" id="code" auto-increase="false"/>
     <table-field standard-field-id="3284a7ab6ffc4f0f9286e96589e580c1" primary="false" unique="false" not-null="false" id="company_name" auto-increase="false"/>
