@@ -1,4 +1,13 @@
 <tables>
+  <table id="235edc33ae58475fac71ad771058e569" name="tips_contacts" title="联系人登记表" schema="" group="contanct">
+    <description></description>
+    <table-field standard-field-id="7e63eb87c3e747efae6acad171124a1d" primary="true" unique="true" not-null="true" id="code" auto-increase="false"/>
+    <table-field standard-field-id="3284a7ab6ffc4f0f9286e96589e580c1" primary="false" unique="false" not-null="false" id="company_name" auto-increase="false"/>
+    <table-field standard-field-id="f8d3a3f3dbb1499397de9ed4d8b3629a" primary="false" unique="false" not-null="false" id="treasury_name" auto-increase="false"/>
+    <table-field standard-field-id="871fcf95a043467998f74a317218aaa1" primary="false" unique="false" not-null="true" id="unit_contact_phone" auto-increase="false"/>
+    <table-field standard-field-id="b57fbfe655ac4f84b8bcc594eeba9c4a" primary="false" unique="false" not-null="false" id="unit_contact_name" auto-increase="false"/>
+    <table-field standard-field-id="38ec8dddca7f41a5a46771fa3bc529e8" primary="false" unique="false" not-null="false" id="remarks" auto-increase="false"/>
+  </table>
   <table id="30d727da5d434905af12b4146f037e46" name="tips_bankdeclare" title="银行申报查询表" schema="" group="未分组">
     <description></description>
     <table-field standard-field-id="2ba74feb825d4dd9ba94bd9f3b852ae6" primary="true" unique="true" not-null="true" id="business_date" auto-increase="false"/>
@@ -11,15 +20,6 @@
     <table-field standard-field-id="86a60c5a78d8406d9092103c55ca25fe" primary="false" unique="false" not-null="false" id="query_order" auto-increase="false"/>
     <table-field standard-field-id="3570f9e2aa4d48648cc15a0afa0dafcf" primary="false" unique="false" not-null="false" id="pay_opbankno" auto-increase="false"/>
     <table-field standard-field-id="b4fa64065a58485fb89ac09db5903b30" primary="false" unique="false" not-null="false" id="addword" auto-increase="false"/>
-  </table>
-  <table id="235edc33ae58475fac71ad771058e569" name="tips_contacts" title="联系人登记表" schema="" group="contanct">
-    <description></description>
-    <table-field standard-field-id="7e63eb87c3e747efae6acad171124a1d" primary="true" unique="true" not-null="true" id="code" auto-increase="false"/>
-    <table-field standard-field-id="3284a7ab6ffc4f0f9286e96589e580c1" primary="false" unique="false" not-null="false" id="company_name" auto-increase="false"/>
-    <table-field standard-field-id="f8d3a3f3dbb1499397de9ed4d8b3629a" primary="false" unique="false" not-null="false" id="treasury_name" auto-increase="false"/>
-    <table-field standard-field-id="871fcf95a043467998f74a317218aaa1" primary="false" unique="false" not-null="true" id="unit_contact_phone" auto-increase="false"/>
-    <table-field standard-field-id="b57fbfe655ac4f84b8bcc594eeba9c4a" primary="false" unique="false" not-null="false" id="unit_contact_name" auto-increase="false"/>
-    <table-field standard-field-id="38ec8dddca7f41a5a46771fa3bc529e8" primary="false" unique="false" not-null="false" id="remarks" auto-increase="false"/>
   </table>
   <table id="05ddefafa22c48ec88c4ef2301b4c1bc" name="tips_reconciliation" title="核心对账表" schema="" group="未分组">
     <description></description>
